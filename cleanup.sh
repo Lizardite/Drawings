@@ -1,6 +1,8 @@
 #!/bin/sh
 
-alias fnh='find . -not -path "*/\.*" -exec echo " - {}" \;'
+fnh() {
+	find . -not -path "*/\.*" "$@" -exec echo " - {}" \;
+}
 
 echo "Cleaning paths"
 fnh -type f -iname "*.svg" -exec sed -i '
